@@ -1,0 +1,6 @@
+{
+  "appId": "com.surya.overlaystudio",
+  "appName": "SuryaOverlayStudio",
+  "webDir": ".",
+  "bundledWebRuntime": false
+}
