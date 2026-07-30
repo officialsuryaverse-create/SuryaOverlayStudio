@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Overlay</title>
+
+<style>
+body{
+    margin:0;
+    overflow:hidden;
+    background:transparent;
+    font-family:Arial,sans-serif;
+}
+
+/* Top Bar */
+#topbar{
+    position:absolute;
+    top:20px;
+    left:20px;
+    display:flex;
+    align-items:center;
+    background:rgba(0,0,0,.75);
+    padding:10px 20px;
+    border-radius:12px;
+}
+
+/* LIVE Badge */
+#liveBadge{
+    display:none;
+    background:#ff0000;
+    color:white;
+    font-weight:bold;
+    font-size:22px;
+    padding:8px 16px;
+    border-radius:8px;
+    margin-right:15px;
+}
+
+/* Logo */
+#logo{
+    width:60px;
+    height:60px;
+    object-fit:contain;
+    margin-right:15px;
+    display:none;
+}
+
+/* Heading */
+#heading{
+    color:white;
+    font-size:32px;
+    font-weight:bold;
+}
+
+/* Bottom Ticker */
+#tickerBox{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    background:#d60000;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+}
+
+/* Running Text */
+#ticker{
+    white-space:nowrap;
+    color:white;
+    font-weight:bold;
+    padding-left:100%;
+    will-change:transform;
+}
+</style>
+
+</head>
+<body>
+
+<div id="topbar">
+
+<div id="liveBadge">LIVE</div>
+
+<img id="logo" src="">
+
+<div id="heading"></div>
+
+</div>
+
+<div id="tickerBox">
+<div id="ticker"></div>
+</div>
+
+<script>
+
+const p = new URLSearchParams(location.search);
+
+const heading = p.get("heading") || "";
+const ticker = p.get("ticker") || "";
+const logo = p.get("logo") || "";
+const speed = Number(p.get("speed")) || 20;
+const size = Number(p.get("size")) || 28;
+const height = Number(p.get("height")) || 60;
+const color = p.get("color") || "#ffffff";
+const live = p.get("live") === "true";
+
+/* Heading */
+document.getElementById("heading").textContent = heading;
+
+/* Ticker */
+const t = document.getElementById("ticker");
+t.textContent = ticker;
+t.style.fontSize = size + "px";
+t.style.color = color;
+
+/* Ticker Height */
+document.getElementById("tickerBox").style.height = height + "px";
+
+/* LIVE Badge */
+if(live){
+    document.getElementById("liveBadge").style.display = "block";
+}
+
+/* Logo */
+if(logo !== ""){
+    const img = document.getElementById("logo");
+    img.src = logo;
+    img.style.display = "block";
+}
+
+/* Running Animation */
+let x = window.innerWidth;
+
+function move(){
+
+    x -= speed / 5;
+
+    t.style.transform = `translateX(${x}px)`;
+
+    if(x < -t.offsetWidth){
+        x = window.innerWidth;
+    }
+
+    requestAnimationFrame(move);
+}
+
+move();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,178 @@
+/* ==========================
+   Surya Overlay Studio
+   Part-1
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#111;
+    color:#fff;
+    font-family:Arial, sans-serif;
+}
+
+.container{
+    width:100%;
+    max-width:600px;
+    margin:auto;
+    padding:20px;
+}
+
+h1{
+    text-align:center;
+    color:#FFD700;
+    margin-bottom:20px;
+    font-size:30px;
+}
+
+label{
+    display:block;
+    margin-top:15px;
+    margin-bottom:6px;
+    font-size:15px;
+}
+
+input,
+select,
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    margin-bottom:12px;
+    font-size:16px;
+}
+
+input{
+    background:#222;
+    color:white;
+}
+
+button{
+    background:#c62828;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#e53935;
+}
+
+#result{
+    margin-top:20px;
+    background:#222;
+    padding:12px;
+    border-radius:10px;
+    word-break:break-word;
+}
+/* ==========================
+   Part-2 : TV Overlay Design
+========================== */
+
+.overlay-frame{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+}
+
+.top-bar{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:90px;
+    background:linear-gradient(90deg,#7b0000,#d32f2f,#7b0000);
+    border-bottom:4px solid gold;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.heading{
+    color:#fff8dc;
+    font-size:36px;
+    font-weight:bold;
+    text-shadow:2px 2px 5px #000;
+}
+
+.sub-heading{
+    color:#ffe082;
+    font-size:18px;
+    text-align:center;
+    margin-top:5px;
+}
+
+.logo-box{
+    position:absolute;
+    left:15px;
+    top:10px;
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    background:#ffffff;
+    border:3px solid gold;
+    overflow:hidden;
+}
+
+.logo-box img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}/* ==========================
+   Part-3 : LIVE Ticker Bar
+========================== */
+
+.bottom-bar{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:70px;
+    background:#101010;
+    border-top:4px solid gold;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+}
+
+.live-box{
+    width:120px;
+    height:100%;
+    background:#d50000;
+    color:#fff;
+    font-size:28px;
+    font-weight:bold;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-shrink:0;
+}
+
+.ticker-area{
+    flex:1;
+    overflow:hidden;
+    white-space:nowrap;
+}
+
+.ticker-text{
+    display:inline-block;
+    padding-left:100%;
+    color:#ffffff;
+    font-size:28px;
+    font-weight:bold;
+    animation:tickerMove 20s linear infinite;
+}
+
+@keyframes tickerMove{
+    from{
+        transform:translateX(0);
+    }
+    to{
+        transform:translateX(-100%);
+    }
+}
