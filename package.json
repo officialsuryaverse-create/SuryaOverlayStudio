@@ -5,14 +5,14 @@
   "description": "SuryaOverlayStudio",
   "scripts": {
     "start": "npx http-server .",
-    "build": "mkdir -p www && cp index.html www/index.html && cp overlay.html www/overlay.html && cp style.css www/style.css && cp script.js www/script.js && cp logo.png www/logo.png && cp splash.png www/splash.png"
+    "build": "mkdir -p dist && cp index.html dist/index.html && cp overlay.html dist/overlay.html && cp style.css dist/style.css && cp script.js dist/script.js && cp logo.png dist/logo.png && cp splash.png dist/splash.png"
   },
   "dependencies": {
-    "@capacitor/core": "^7.0.0",
-    "@capacitor/android": "^7.0.0",
-    "@capacitor/cli": "^7.0.0"
+    "@capacitor/core": "^7.4.2",
+    "@capacitor/android": "^7.4.2"
   },
   "devDependencies": {
+    "@capacitor/cli": "^7.4.2",
     "http-server": "^14.1.1"
   }
 }
