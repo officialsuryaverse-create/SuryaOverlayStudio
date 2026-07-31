@@ -2,12 +2,17 @@
   "name": "surya-overlay-studio",
   "version": "1.0.0",
   "private": true,
+  "description": "SuryaOverlayStudio",
   "scripts": {
-    "start": "npx http-server ."
+    "start": "npx http-server .",
+    "build": "mkdir -p www && cp index.html www/index.html && cp overlay.html www/overlay.html && cp style.css www/style.css && cp script.js www/script.js && cp logo.png www/logo.png && cp splash.png www/splash.png"
   },
   "dependencies": {
+    "@capacitor/core": "^7.0.0",
     "@capacitor/android": "^7.0.0",
-    "@capacitor/cli": "^7.0.0",
-    "@capacitor/core": "^7.0.0"
+    "@capacitor/cli": "^7.0.0"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
   }
 }
