@@ -1,5 +1,5 @@
 {
   "appId": "com.surya.overlaystudio",
   "appName": "SuryaOverlayStudio",
-  "webDir": "dist"
+  "webDir": "www"
 }
